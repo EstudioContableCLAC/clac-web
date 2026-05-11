@@ -1,0 +1,71 @@
+/* // ─── Sidebar ────────────────────────────────────────────────── */
+.sidebar-left {
+    position: fixed; top: 0; right: 0; background: var(--white);
+    height: 100%; width: 350px; padding-top: 80px; z-index: 999;
+    transform: translateX(100%); transition: all .4s ease; text-align: left;
+    @media (max-width: 767px) { width: 270px; }
+  
+    &.open { transform: translateX(0); }
+  
+    .sidebar-close { position: absolute; top: 30px; right: 30px; }
+    .sidebar-close .close {
+      font-size: 18px; color: var(--black); transition: all .2s ease;
+      &:hover { transform: rotate(90deg); }
+    }
+    .sidebar-content { padding: 0 30px; }
+    .sidebar-content .text { margin-top: 20px; }
+  
+    .sidebar-menu { margin-top: 30px; }
+    .sidebar-menu .menu-title { font-size: 18px; font-weight: 600; }
+    .sidebar-menu ul { margin-top: 15px; }
+    .sidebar-menu ul li a {
+      font-size: 16px; font-weight: 500; padding: 8px 0; color: var(--dark-3);
+      display: block; transition: all .3s ease;
+      &:hover { color: var(--primary); padding-left: 5px; }
+    }
+  
+    .sidebar-social { margin-top: 30px; }
+    .sidebar-social .social-title { font-size: 18px; font-weight: 600; margin-bottom: 25px; }
+    .sidebar-social ul li { display: inline-block; margin-right: 5px; }
+    .sidebar-social ul li a {
+      height: 38px; width: 38px; line-height: 38px; text-align: center;
+      border: 1px solid #eee; border-radius: 50%; font-size: 18px; color: #666;
+      transition: all .3s ease;
+      &:hover { color: var(--white); background: var(--primary); border-color: transparent; }
+    }
+  }
+  .overlay-left {
+    position: fixed; background: rgba(0,0,0,.6);
+    top: 0; left: 0; width: 100%; height: 100%; display: none; z-index: 99;
+    &.open { display: block; }
+  }
+  .sidebar-left {
+    width: 320px;
+  
+    /* Permite scroll interno si el contenido es largo */
+    overflow-y: auto;
+    overflow-x: hidden;
+  
+    /* Scroll suave en iOS */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  @media (max-width: 400px) {
+    .sidebar-left {
+      /* En pantallas muy pequeñas ocupa casi todo el ancho */
+      width: 88vw;
+    }
+  }
+  
+  /* El contenido interno no se desborda */
+  .sidebar-content {
+    padding: 0 24px;
+    padding-bottom: 40px; /* espacio al final para que se vea el último botón */
+  }
+  
+  /* Los iconos sociales en fila y con wrap si no caben */
+  .sidebar-social ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }

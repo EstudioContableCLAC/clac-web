@@ -1,0 +1,177 @@
+<section class="page-header">
+  <div class="bg-img" [style.backgroundImage]="'url(' + headerData.image + ')'"></div>
+  
+  <div class="overlay"></div>
+  
+  <div class="shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+  </div>
+
+  <div class="container">
+      <div class="page-header-content text-center">
+          <h1 class="title animate">{{ headerData.title }}</h1>
+          
+          <h4 class="sub-title animate">
+            {{ headerData.description }}
+          </h4>
+      </div>
+  </div>
+</section>
+  
+  
+  <!-- About Section -->
+  <section class="about-area about-five">
+    <div class="container">
+      <div class="row align-items-center">
+  
+        <!-- Image -->
+        <div class="col-lg-6 col-12">
+          <div class="about-image-five">
+            <svg class="shape" width="106" height="134" viewBox="0 0 106 134" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="1.667" cy="1.667" r="1.667" fill="#DADADA"/>
+              <circle cx="1.667" cy="16.333" r="1.667" fill="#DADADA"/>
+              <circle cx="1.667" cy="31" r="1.667" fill="#DADADA"/>
+              <circle cx="1.667" cy="45.667" r="1.667" fill="#DADADA"/>
+              <circle cx="1.667" cy="60.333" r="1.667" fill="#DADADA"/>
+              <circle cx="1.667" cy="75" r="1.667" fill="#DADADA"/>
+              <circle cx="1.667" cy="89.667" r="1.667" fill="#DADADA"/>
+              <circle cx="1.667" cy="104" r="1.667" fill="#DADADA"/>
+              <circle cx="1.667" cy="118.667" r="1.667" fill="#DADADA"/>
+              <circle cx="1.667" cy="133" r="1.667" fill="#DADADA"/>
+              <circle cx="16.333" cy="1.667" r="1.667" fill="#DADADA"/>
+              <circle cx="16.333" cy="16.333" r="1.667" fill="#DADADA"/>
+              <circle cx="16.333" cy="31" r="1.667" fill="#DADADA"/>
+              <circle cx="16.333" cy="45.667" r="1.667" fill="#DADADA"/>
+              <circle cx="16.333" cy="60.333" r="1.667" fill="#DADADA"/>
+              <circle cx="16.333" cy="75" r="1.667" fill="#DADADA"/>
+              <circle cx="16.333" cy="89.667" r="1.667" fill="#DADADA"/>
+              <circle cx="16.333" cy="104" r="1.667" fill="#DADADA"/>
+              <circle cx="16.333" cy="118.667" r="1.667" fill="#DADADA"/>
+              <circle cx="16.333" cy="133" r="1.667" fill="#DADADA"/>
+              <circle cx="31" cy="1.667" r="1.667" fill="#DADADA"/>
+              <circle cx="31" cy="16.333" r="1.667" fill="#DADADA"/>
+              <circle cx="31" cy="31" r="1.667" fill="#DADADA"/>
+              <circle cx="31" cy="45.667" r="1.667" fill="#DADADA"/>
+              <circle cx="31" cy="60.333" r="1.667" fill="#DADADA"/>
+              <circle cx="31" cy="75" r="1.667" fill="#DADADA"/>
+              <circle cx="31" cy="89.667" r="1.667" fill="#DADADA"/>
+              <circle cx="31" cy="104" r="1.667" fill="#DADADA"/>
+              <circle cx="31" cy="118.667" r="1.667" fill="#DADADA"/>
+              <circle cx="31" cy="133" r="1.667" fill="#DADADA"/>
+            </svg>
+            <img src="assets/images/about/about-img1.jpg" alt="About us" />
+          </div>
+        </div>
+  
+        <!-- Content with tabs -->
+        <div class="col-lg-6 col-12">
+          <div class="about-five-content">
+            <h6 class="small-title text-lg">Nuestra historia</h6>
+            <h2 class="main-title fw-bold">Combinamos más de dos décadas de trayectoria contable con innovación tecnológica de alcance internacional para potenciar tu negocio.</h2>
+            <div class="about-five-tab">
+              <nav>
+                <div class="nav nav-tabs" role="tablist">
+                  <button class="nav-link" [class.active]="activeTab() === 'who'"     (click)="setTab('who')">Quiénes somos</button>
+                  <button class="nav-link" [class.active]="activeTab() === 'vision'"  (click)="setTab('vision')">Nuestra visión</button>
+                  <button class="nav-link" [class.active]="activeTab() === 'history'" (click)="setTab('history')">Nuestra historia</button>
+                </div>
+              </nav>
+              <div class="tab-content">
+                @if (activeTab() === 'who') {
+                  <div class="tab-pane fade show active">
+                    <p>Somos una firma de consultoría integral que nace de la unión de dos pilares fundamentales: la experiencia técnica consolidada y la innovación en ingeniería. Nos especializamos en brindar soluciones que garantizan el orden financiero y la eficiencia operativa.</p>
+                    <p>Creemos en el trabajo personalizado. Para nosotros, cada cliente no es un número más, sino un socio estratégico al que acompañamos con rigor profesional, ética y herramientas tecnológicas de vanguardia.</p>
+                  </div>
+                }
+                @if (activeTab() === 'vision') {
+                  <div class="tab-pane fade show active">
+                    <p>Nuestra visión es ser la consultora referente que logre fusionar la contabilidad tradicional con la ingeniería avanzada, liderando la transformación digital de nuestros clientes en Latinoamérica y Europa.</p>
+                    <p>Creemos que la tecnología debe ser accesible y transformadora para empresas de todos los tamaños.</p>
+                  </div>
+                }
+                @if (activeTab() === 'history') {
+                  <div class="tab-pane fade show active">
+                    <p>Nuestro camino comenzó con una visión clara: democratizar el acceso a servicios de alta calidad que antes solo estaban al alcance de grandes corporaciones. Con una base sólida de más de 20 años de experiencia en el sector contable, financiero, tributario y laboral, hemos evolucionado integrando capacidades avanzadas en desarrollo de software y consultoría ERP SAP.</p>
+                    <p>Hoy, esa herencia de conocimiento nos permite atender con la misma pasión a negocios locales —desde centros médicos hasta inmobiliarias— y colaborar en proyectos de infraestructura tecnológica y energética a nivel internacional.</p>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <!-- ===== VIDEOS ===== -->
+  @for (video of videos; track video.id; let i = $index) {
+    <section class="video-section"
+             [class.video-section--dark]="i % 2 === 0"
+             [class.video-section--light]="i % 2 !== 0">
+      <div class="container">
+        <div class="row align-items-center g-5">
+  
+          <!-- VIDEO -->
+          <div class="col-lg-5 col-12"
+               [class.order-lg-1]="i % 2 === 0"
+               [class.order-lg-2]="i % 2 !== 0">
+            <div class="short-wrapper">
+              <div class="short-container">
+                <iframe
+                  [src]="getEmbedUrl(video.id)"
+                  frameborder="0"
+                  allowfullscreen
+                  allow="encrypted-media; picture-in-picture"
+                  title="{{ video.title }}">
+                </iframe>
+              </div>
+            </div>
+          </div>
+  
+          <!-- TEXTO -->
+          <div class="col-lg-7 col-12"
+               [class.order-lg-2]="i % 2 === 0"
+               [class.order-lg-1]="i % 2 !== 0">
+            <div class="video-section__content"
+                 [class.video-section__content--dark]="i % 2 === 0"
+                 [class.video-section__content--light]="i % 2 !== 0">
+  
+              <h2>{{ video.title }}</h2>
+              <p>{{ video.description }}</p>
+  
+              <ul class="video-features">
+                @for (feature of video.features; track feature) {
+                  <li>
+                    <i class="lni lni-checkmark-circle"></i>
+                    {{ feature }}
+                  </li>
+                }
+              </ul>
+  
+              @if (video.buttonUrl.startsWith('http')) {
+                <a [href]="video.buttonUrl" target="_blank" rel="noopener"
+                   class="btn video-btn"
+                   [class.video-btn--outline]="i % 2 === 0"
+                   [class.video-btn--solid]="i % 2 !== 0">
+                  {{ video.buttonText }}
+                  <i class="lni lni-arrow-right"></i>
+                </a>
+              } @else {
+                <a [routerLink]="video.buttonUrl"
+                   class="btn video-btn"
+                   [class.video-btn--outline]="i % 2 === 0"
+                   [class.video-btn--solid]="i % 2 !== 0">
+                  {{ video.buttonText }}
+                  <i class="lni lni-arrow-right"></i>
+                </a>
+              }
+  
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </section>
+  }

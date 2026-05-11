@@ -1,0 +1,167 @@
+<!-- PAGE HEADER -->
+<section class="service-page-header">
+
+  <!-- Fondo: imagen o video según configuración -->
+  @if (data().headerBg?.type === 'video') {
+    <video
+      class="service-page-header__video"
+      [src]="data().headerBg!.src"
+      [poster]="data().headerBg!.poster || ''"
+      autoplay
+      muted
+      loop
+      playsinline>
+    </video>
+  } @else if (data().headerBg?.type === 'image') {
+    <div class="service-page-header__bg"
+      [style.backgroundImage]="'url(' + data().headerBg!.src + ')'">
+    </div>
+  } @else {
+    <!-- Fondo por defecto si no se especifica -->
+    <div class="service-page-header__bg service-page-header__bg--default"></div>
+  }
+
+  <div class="service-page-header__overlay"></div>
+
+  <div class="container">
+    <div class="service-page-header__content">
+      <h1>{{ pageTitle() }}</h1>
+      <div class="breadcrumb-wrap">
+        <a routerLink="/">Inicio</a>
+        <!-- <span>/</span>
+        <a routerLink="/services">Servicios</a> -->
+        <span>/</span>
+        <span class="current">{{ pageTitle() }}</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- CONTENIDO PRINCIPAL -->
+<section class="service-details-section">
+  <div class="container">
+    <div class="row">
+
+      <!-- COLUMNA IZQUIERDA: contenido -->
+      <div class="col-lg-8">
+        <div class="service-details-content">
+
+          <!-- Imagen principal -->
+          <div class="service-details-img">
+            <img [src]="data().heroImage" [alt]="data().title" />
+          </div>
+
+          <!-- Título y descripción -->
+          <h2 class="details-title">{{ data().title }}</h2>
+          <p>{{ data().description }}</p>
+
+          <!-- Grid de características -->
+          <div class="service-thumb-wrap">
+            <ul class="thumb-list">
+              @for (feature of data().features; track feature) {
+                <li>
+                  <i class="lni lni-checkmark-circle"></i>
+                  {{ feature }}
+                </li>
+              }
+            </ul>
+          </div>
+
+          <!-- Sección reto/desafío -->
+          <h2 class="details-title">El desafío del servicio</h2>
+          <p>{{ data().challenge }}</p>
+
+          <!-- FAQ Accordion -->
+          <div class="service-details-accordion">
+            @for (faq of data().faqs; track faq.question; let i = $index) {
+              <div class="accordion-item" [class.open]="openFaq() === i">
+                <button class="accordion-btn" (click)="toggleFaq(i)">
+                  <span>{{ i + 1 < 10 ? '0' + (i + 1) : (i + 1) }} {{ faq.question }}</span>
+                  <i class="lni" [class.lni-chevron-down]="openFaq() !== i"
+                     [class.lni-chevron-up]="openFaq() === i"></i>
+                </button>
+                @if (openFaq() === i) {
+                  <div class="accordion-body">
+                    {{ faq.answer }}
+                  </div>
+                }
+              </div>
+            }
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COLUMNA DERECHA: sidebar -->
+      <div class="col-lg-4">
+
+        <!-- Lista de servicios -->
+        <div class="service-widget">
+          <h4 class="widget-header">Nuestros Servicios</h4>
+          <ul class="category-list">
+            @for (service of services; track service.route) {
+              <li>
+                <a [routerLink]="service.route"
+                   routerLinkActive="active">
+                  {{ service.label }}
+                  <i class="lni lni-arrow-right"></i>
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- CTA Widget -->
+        <div class="service-widget service-cta-widget">
+          <div class="service-cta-content">
+            <i class="lni lni-phone-set"></i>
+            <h4>¿Necesitas ayuda?</h4>
+            <p>Contáctanos y te asesoramos sin compromiso</p>
+            <a href="tel:+51920434069" class="cta-phone">+51 920 434 069</a>
+            <span class="cta-schedule">Lun–Vie: 9:00 AM – 6:00 PM</span>
+            <a routerLink="/contact" class="btn cta-btn">Contáctanos</a>
+          </div>
+        </div>
+
+                <!-- Widget Brochure -->
+        <div class="service-widget brochure-widget">
+          <h4 class="widget-header">Material Informativo</h4>
+          
+          <!-- Previsualización del PDF -->
+          <div class="brochure-preview">
+            <div class="brochure-thumb">
+              <img 
+                src="assets/images/services/images/brochure-preview.png" 
+                alt="Brochure CLAC" />
+              <!-- <div class="brochure-thumb__overlay">
+                <i class="lni lni-eye"></i>
+              </div> -->
+            </div>
+          </div>
+
+          <!-- Descripción -->
+          <div class="brochure-info">
+            <h5>Brochure Corporativo</h5>
+            <p>Descubre todos nuestros servicios, clientes y soluciones en un solo documento.</p>
+          </div>
+
+          <!-- Botón de descarga -->
+          <a 
+            href="assets/docs/brochure-CLAC.pdf" 
+            download="Brochure-CLAC.pdf"
+            class="btn brochure-btn">
+            <i class="lni lni-download"></i>
+            Descargar Brochure
+          </a>
+
+          <span class="brochure-meta">
+            <i class="lni lni-files"></i> PDF · 12 páginas
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

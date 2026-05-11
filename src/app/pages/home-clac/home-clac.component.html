@@ -1,0 +1,181 @@
+<!-- ===== SLIDER ===== -->
+<section class="slider-section">
+
+  <div class="slider-wrapper"
+    (mousedown)="onMouseDown($event)"
+    (mousemove)="onMouseMove($event)"
+    (mouseup)="onMouseUp($event)"
+    (mouseleave)="onMouseLeave($event)"
+    (touchstart)="onTouchStart($event)"
+    (touchend)="onTouchEnd($event)"
+    style="cursor: grab; user-select: none;">
+
+    @for (slide of slides; track slide.image; let i = $index) {
+      <div
+        class="single-slider"
+        [class.active]="activeSlide() === i"
+        [style.backgroundImage]="'url(' + slide.image + ')'">
+        <div class="slider-overlay"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-7 col-lg-8 col-md-10">
+              <div class="slider-content" [class.animate]="activeSlide() === i">
+                <h1>{{ slide.title }}</h1>
+                <p>{{ slide.description }}</p>
+                <a [routerLink]="slide.buttonLink" class="btn slider-btn">
+                  {{ slide.buttonText }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- <button class="slider-arrow slider-arrow--prev" (click)="prevSlide()">
+    <i class="lni lni-chevron-left"></i>
+  </button>
+  <button class="slider-arrow slider-arrow--next" (click)="nextSlide()">
+    <i class="lni lni-chevron-right"></i>
+  </button> -->
+
+  <div class="slider-dots">
+    @for (slide of slides; track slide.image; let i = $index) {
+      <button
+        class="slider-dot"
+        [class.active]="activeSlide() === i"
+        (click)="goToSlide(i)"
+        [attr.aria-label]="'Slide ' + (i + 1)">
+      </button>
+    }
+  </div>
+
+</section>
+ 
+
+  <!-- ===== PORTFOLIO ===== -->
+<section id="portfolio" class="portfolio-area portfolio-three">
+
+  <app-section-title
+    badge="Nuestra Experiencia en Acción"
+    title="Proyectos Destacados"
+    subtitle="Resultados que impulsan negocios: un portafolio de nuestras implementaciones en contabilidad, asesoría financiera, desarrollo en SAP e ingeniería especializada en Perú y Latinoamérica.">
+  </app-section-title>
+
+  <div class="container">
+
+    <!-- Botones de filtro -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="portfolio-menu text-center">
+          @for (f of filters; track f.value) {
+            <button
+              [class.active]="activeFilter() === f.value"
+              (click)="setFilter(f.value)">
+              {{ f.label }}
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjetas del portafolio -->
+    <div class="row grid" style="margin-top: 30px;">
+      @for (item of filteredItems(); track item.title) {
+        <div class="col-lg-4 col-sm-6">
+          <div class="portfolio-style-three">
+            <div class="portfolio-image">
+              <img [src]="item.image" [alt]="item.title" />
+              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                <div class="portfolio-content">
+                  <!-- <div class="portfolio-icon">
+                    <a [href]="item.image" class="glightbox3">
+                      <i class="lni lni-zoom-in"></i>
+                    </a>
+                  </div> -->
+                  <!-- <div class="portfolio-icon">
+                    <a href="#"><i class="lni lni-link"></i></a>
+                  </div> -->
+                          <!-- Overlay con un solo botón -->
+                  <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                    <a [routerLink]="item.link" class="portfolio-btn-vermas">
+                      Ver más <i class="lni lni-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-text">
+              <h4 class="portfolio-title">
+                <a href="#">{{ item.title }}</a>
+              </h4>
+              <p class="text">{{ item.description }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>
+  
+ <!-- ===== CALL TO ACTION ===== -->
+ <section class="call-action">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-9">
+        <div class="inner-content">
+          <h2>Lleva tu empresa al siguiente nivel<br />con soluciones integrales </h2>
+          <p>
+            Te ayudamos a optimizar tus procesos contables, financieros y tecnológicos de manera eficiente y segura en Perú y Latinoamérica.
+          </p>
+          <div class="light-rounded-buttons">
+            <a routerLink="/contact" class="btn primary-btn-outline">Solicitar asesoría</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="brand-area section">
+  <app-section-title
+    badge="Nuestros Clientes"
+    title="Crecemos junto a los mejores"
+    subtitle="Nos sentimos orgullosos de ser aliados estratégicos de empresas que apuestan por la innovación y la eficiencia operativa en Latinoamérica. Cada logo representa un desafío resuelto con éxito.">
+  </app-section-title>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 col-12">
+        <div class="clients-logos">
+          @for (logo of clientLogos; track logo.alt) {
+            <div class="single-image">
+              <img [src]="logo.src" [alt]="logo.alt" />
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- ===== BLOG ===== -->
+  <!-- <div class="latest-news-area section">
+    <app-section-title
+      badge="latest news"
+      title="Latest News &amp; Blog"
+      subtitle="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.">
+    </app-section-title>
+    <div class="container">
+      <div class="row">
+        @for (post of posts; track post.title) {
+          <div class="col-lg-4 col-md-6 col-12">
+            <app-blog-card [post]="post"></app-blog-card>
+          </div>
+        }
+      </div>
+    </div>
+  </div> -->
+
+
+  

@@ -1,0 +1,178 @@
+
+<!-- 🔝 TOPBAR (SEPARADA) -->
+<div class="topbar" [class.hide]="isTopbarHidden()">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+  
+        <!-- IZQUIERDA -->
+        <ul class="navbar-nav d-flex flex-row">
+          <li class="nav-item me-3">
+            <a href="https://api.whatsapp.com/send?phone=51920434069&text=Hola!%20Quisiera%20conocer%20más%20sobre%20sus%20servicios%20😀" target="_blank"><i class="lni lni-whatsapp"></i> +51 920434069</a>
+          </li>
+          <li class="nav-item">
+            <a href="#"><i class="lni lni-envelope"></i> estudiocontableclac&#64;gmail.com</a>
+          </li>
+        </ul>
+  
+        <!-- DERECHA -->
+       
+        <ul class="navbar-nav d-flex flex-row align-items-center gap-2">
+            <li class="nav-item me-2 d-none d-md-block">Síguenos en:</li>
+        
+            <ul class="social-icons d-flex flex-row list-unstyled mb-0 gap-2">
+            <li>
+                <a href="https://www.facebook.com/Soluciones.CLAC" target="_blank" aria-label="Facebook">
+                <i class="lni lni-facebook-filled"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/company/estrategias-soluciones-integrales-clac-e-i-r-l/?viewAsMember=true" target="_blank" aria-label="LinkedIn">
+                <i class="lni lni-linkedin-original"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/soluciones_clac" target="_blank" aria-label="Instagram">
+                <i class="lni lni-instagram-original"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/@soluciones_clac" target="_blank" aria-label="TikTok">
+                <i class="lni lni-tiktok"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/@SolucionesCLAC" target="_blank" aria-label="YouTube">
+                <i class="lni lni-youtube"></i>
+                </a>
+            </li>
+            </ul>
+        </ul>
+  
+      </div>
+    </div>
+</div>
+
+<section class="navbar-area navbar-nine" [class.sticky]="isSticky()">
+    <div class="container" >      
+      <!-- BARRA NAVEGACIÓN -->
+      <div class="row">
+        <div class="col-lg-12">
+          <nav class="navbar navbar-expand-lg">
+  
+            <a class="navbar-brand" routerLink="/">
+              <img src="assets/images/Logo E&S CLAC.svg" alt="Logo" style="height: 80px; width: auto;"/>
+            </a>
+  
+            <button
+              class="navbar-toggler"
+              type="button"
+              [class.active]="!isNavCollapsed()"
+              (click)="toggleNav()"
+              aria-label="Toggle navigation">
+              <span class="toggler-icon"></span>
+              <span class="toggler-icon"></span>
+              <span class="toggler-icon"></span>
+            </button>
+  
+            <div class="navbar-collapse sub-menu-bar" [class.collapse]="isNavCollapsed()">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                     (click)="closeNav()">Inicio</a>
+                </li>
+                 <!-- Servicios con dropdown -->
+                <li class="nav-item dropdown-wrapper"
+                [class.open]="isDropdownOpen()"
+                (click)="$event.stopPropagation()">
+
+                  <a href="#" class="dropdown-toggle-link"
+                    [class.active]="isDropdownOpen()"
+                    (click)="toggleDropdown($event)">
+                    Servicios
+                    <i class="lni lni-chevron-down dropdown-arrow"
+                      [class.rotated]="isDropdownOpen()"></i>
+                  </a>
+
+                  <!-- Menú desplegable -->
+                  <ul class="dropdown-menu-custom" [class.show]="isDropdownOpen()">
+                    <li>
+                      <a routerLink="/services/contabilidad" (click)="closeNav()">
+                        <i class="lni lni-calculator"></i>
+                        <span>
+                          <strong>Contabilidad y Finanzas</strong>
+                          <small>Gestión contable y Asesoría Financiera</small>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a routerLink="/services/tributacion" (click)="closeNav()">
+                        <i class="lni lni-revenue"></i>
+                        <span>
+                          <strong>Tributación</strong>
+                          <small>Planificación y análisis Tributario</small>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a routerLink="/services/laboral" (click)="closeNav()">
+                        <i class="lni lni-user"></i>
+                        <span>
+                          <strong>Laboral</strong>
+                          <small>Planilla y Contratos de trabajadores</small>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a routerLink="/services/software" (click)="closeNav()">
+                        <i class="lni lni-layers"></i>
+                        <span>
+                          <strong>Software</strong>
+                          <small>Desarrollo e Integración de sistemas a medida</small>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a routerLink="/services/ingenieria" (click)="closeNav()">
+                        <i class="lni lni-cog"></i>
+                        <span>
+                          <strong>Ingeniería</strong>
+                          <small>Simulaciones y consultoria</small>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!-- <li class="nav-item">
+                  <a routerLink="/services" routerLinkActive="active"
+                     (click)="closeNav()">Servicios</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                  <a routerLink="/pricing" routerLinkActive="active"
+                     (click)="closeNav()">Planes</a>
+                </li> -->
+                <li class="nav-item">
+                  <a routerLink="/about" routerLinkActive="active"
+                     (click)="closeNav()">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/contact" routerLinkActive="active"
+                     (click)="closeNav()">Contacto</a>
+                </li>
+              </ul>
+            </div>
+  
+            <div class="navbar-btn d-none d-lg-inline-block">
+              <a class="menu-bar" href="#" (click)="openSidebar($event)">
+                <i class="lni lni-menu"></i>
+              </a>
+            </div>
+  
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+   
+

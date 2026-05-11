@@ -1,0 +1,222 @@
+/* --- PAGE HEADER COMPLETO --- */
+.page-header {
+  position: relative;
+  padding: 120px 0; /* Altura basada en relleno para que sea flexible */
+  background-color: #013a85;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 400px;
+}
+
+/* Imagen de fondo */
+.page-header .bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+/* Overlay Azul (Capa de color) */
+.page-header .overlay {
+  position: absolute;
+  inset: 0;
+  background: #000000; /* Tu azul #024BAA */
+  opacity: 0.6;
+  z-index: 2;
+}
+
+/* Contenido (Texto) */
+.page-header .container {
+  position: relative;
+  z-index: 4;
+}
+
+.page-header-content .title {
+  color: #fff;
+  font-size: 45px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+.page-header-content .sub-title {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.page-header-content .sub-title a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.page-header-content .sub-title a:hover {
+  opacity: 1;
+  color: #f4f4f4;
+}
+
+.page-header-content .sub-title .icon {
+  margin: 0 10px;
+  opacity: 0.6;
+}
+
+/* SHAPES (Decoración abstracta) */
+.page-header .shapes .shape {
+  position: absolute;
+  z-index: 3;
+  opacity: 0.15; /* Sutil */
+  background: #fff;
+}
+
+.shape-1 {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  top: -50px;
+  right: -50px;
+}
+
+.shape-2 {
+  width: 150px;
+  height: 150px;
+  bottom: -30px;
+  left: 10%;
+  transform: rotate(45deg);
+  border: 20px solid #fff;
+}
+
+/* --- ANIMACIONES --- */
+.animate {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Responsivo */
+@media (max-width: 767px) {
+  .page-header {
+      padding: 80px 0;
+      min-height: 300px;
+  }
+  .page-header-content .title {
+      font-size: 32px;
+  }
+}
+
+/* // ─── Contact ────────────────────────────────────────────────── */
+.contact-section { padding: 80px 0;
+    @media (max-width: 767px) { padding: 60px 0; }
+  }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 20px;
+    border: 1px solid var(--gray-4); border-radius: 10px;
+    background: #fff; margin-bottom: 24px; padding: 24px 28px;
+    transition: all .3s ease;
+    &:hover { box-shadow: var(--shadow-4); }
+    @media (max-width: 767px) { flex-direction: column; }
+    .contact-icon {
+      flex-shrink: 0; display: flex; justify-content: center; align-items: center;
+      font-size: 22px; width: 50px; height: 50px;
+      border-radius: 50%; background: var(--primary); color: #fff;
+    }
+    .contact-content h4 { font-size: 18px; color: var(--primary); margin-bottom: 8px; }
+    .contact-content p  { line-height: 1.8; }
+  }
+  .contact-form-wrapper {
+    padding: 50px 40px; background: #fff; border: 1px solid var(--gray-4);
+    border-radius: 10px; transition: all .3s ease;
+    &:hover { box-shadow: var(--shadow-4); }
+    @media (max-width: 767px) { padding: 30px 20px; margin-top: 40px; }
+    .section-title { margin-bottom: 30px; }
+    .section-title span { font-size: 18px; color: var(--primary); font-weight: 700; display: block; margin-bottom: 8px; }
+    .section-title h2 { margin-bottom: 10px; }
+    .section-title p  { color: var(--dark-3); }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 14px 22px; border-radius: 30px;
+      border: 1px solid var(--gray-4); margin-bottom: 22px; width: 100%;
+      font-size: 15px; transition: border-color .3s ease;
+      &:focus { border-color: var(--primary); }
+    }
+    .contact-form textarea { border-radius: 16px; resize: vertical; }
+    .contact-form .button { margin-top: 8px; }
+  }
+  
+  .alert-success-msg {
+    background: #eafbe7; color: #13a322; border: 1px solid #b7f0bc;
+    border-radius: 8px; padding: 14px 20px; margin-bottom: 24px;
+    font-weight: 500; display: flex; align-items: center; gap: 10px;
+    i { font-size: 20px; }
+  }
+  
+  .map-style-9 { margin-top: -100px; }
+  .map-container iframe { display: block; }
+  @media (max-width: 767px) {
+    .map-style-9 {
+      margin-top: 0;
+    }
+  }
+  /* ─── VALIDACIÓN DE CAMPOS ───────────────────────────────── */
+
+/* Borde rojo cuando el campo es inválido y fue tocado */
+.contact-form input.input-error,
+.contact-form textarea.input-error {
+  border-color: #e6185e !important;
+  background-color: #fff8fa;  /* fondo levemente rosado */
+}
+
+/* Efecto de foco también en rojo si tiene error */
+.contact-form input.input-error:focus,
+.contact-form textarea.input-error:focus {
+  border-color: #e6185e !important;
+  box-shadow: 0 0 0 3px rgba(230, 24, 94, 0.12);
+  outline: none;
+}
+
+/* Borde verde cuando el campo es válido y fue tocado */
+.contact-form input.ng-valid.ng-touched:not([name="website"]),
+.contact-form textarea.ng-valid.ng-touched {
+  border-color: #13d527;
+}
+
+.contact-form input.ng-valid.ng-touched:not([name="website"]):focus,
+.contact-form textarea.ng-valid.ng-touched:focus {
+  border-color: #13d527;
+  box-shadow: 0 0 0 3px rgba(19, 213, 39, 0.12);
+}
+
+/* Texto del error en rojo debajo del campo */
+.error-text {
+  display: block;
+  color: #e6185e;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: -14px;
+  margin-bottom: 18px;
+  padding-left: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Ícono de advertencia antes del texto */
+.error-text::before {
+  content: '⚠';
+  font-size: 11px;
+}

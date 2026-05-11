@@ -1,0 +1,323 @@
+/* ─── TOPBAR ─────────────────────────────────────────────────── */
+.topbar {
+  width: 100%;
+  background-color: #024BAA;   /* antes: #fff → ahora azul */
+  padding: 8px 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.topbar.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.topbar .navbar-nav {
+  align-items: center;
+}
+
+/* Links de texto (teléfono, email, etc.) */
+.topbar .nav-item a {
+  color: #fff;              /* antes: #333 → ahora blanco */
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.topbar i {
+  margin-right: 5px;
+  color: #fff;              /* íconos también blancos */
+}
+
+/* Texto directo en li sin enlace */
+.topbar .nav-item {
+  color: #fff;
+}
+
+/* Redes sociales */
+.topbar .social-icons li a {
+  height: 38px;
+  width: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  font-size: 18px;
+  color: #fff;
+  transition: all .3s ease;
+}
+
+/* Hover: fondo gris, borde gris, ícono azul */
+.topbar .social-icons li a:hover {
+  color: #024BAA;
+  background: #F4F4F4;
+  border-color: #F4F4F4;
+}
+
+/* Forzar que el ícono dentro del <a> herede el color */
+.topbar .social-icons li a i {
+  display: block;
+  transform: translateX(2px);
+  color: inherit;   /* ← hereda el color del <a> padre, cambia con el hover */
+}
+
+/* También el topbar */
+.topbar {
+  width: 100%;
+  max-width: 100%;
+
+}
+
+/* ─── TOPBAR RESPONSIVE ──────────────────────────────────── */
+
+/* En móvil — oculta teléfono, email y texto "Síguenos en:" */
+@media (max-width: 767px) {
+
+  /* Oculta la columna izquierda completa (teléfono y email) */
+  .topbar .navbar-nav:first-child {
+    display: none !important;
+  }
+
+  /* Oculta el texto "Síguenos en:" */
+  .topbar .nav-item.me-2 {
+    display: none !important;
+  }
+
+  /* Centra los íconos sociales en móvil */
+  .topbar .d-flex.justify-content-between {
+    justify-content: center !important;
+  }
+
+  /* Reduce un poco el tamaño de los botones en móvil */
+  .topbar .social-icons li a {
+    height: 32px;
+    width: 32px;
+    font-size: 15px;
+  }
+}
+
+/* ─── NAVBAR ─────────────────────────────────────────────────── */
+.navbar-toggler:focus { box-shadow: none; }
+
+.navbar-area.navbar-nine.sticky {
+  width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+.navbar-area.navbar-nine {
+  background: #fff;            /* antes: var(--primary) azul → ahora blanco */
+  padding: 0;
+  transition: all 0.3s ease;
+  position: sticky; left: 0; top: 0; width: 100%; z-index: 999;
+
+  &.sticky {
+    position: fixed !important; top: 0; width: 100%;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.10);
+    transition: all .3s ease;
+  }
+
+  .navbar { position: relative; padding: 0; }
+  .navbar-brand { margin: 0; }
+
+  /* Hamburguesa mobile — líneas azules sobre blanco */
+  .navbar-toggler {
+    .toggler-icon {
+      width: 30px; height: 2px;
+      background: #024BAA;     /* antes: var(--white) → ahora azul */
+      margin: 5px 0; display: block; transition: all .3s ease;
+    }
+    &.active .toggler-icon:nth-of-type(1) { transform: rotate(45deg);  top: 7px;  position: relative; }
+    &.active .toggler-icon:nth-of-type(2) { opacity: 0; }
+    &.active .toggler-icon:nth-of-type(3) { transform: rotate(135deg); top: -7px; position: relative; }
+  }
+
+  /* Menú desplegable en mobile — fondo blanco */
+  @media (max-width: 991px) {
+    .navbar-collapse {
+      position: absolute; top: 100%; left: 0; width: 100%;
+      background: #fff;        /* antes: var(--primary) → ahora blanco */
+      z-index: 8; padding: 10px 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+  }
+
+  /* Links del menú — azules sobre blanco */
+  .navbar-nav .nav-item a {
+    display: flex; align-items: center; padding: 11px 16px;
+    color: #024BAA;            /* antes: var(--white) → ahora azul */
+    text-transform: capitalize; font-weight: 500;
+    border-radius: 5px; transition: all .3s ease; opacity: .8;
+
+    /* Hover: fondo gris suave, letra azul más intensa */
+    &:hover {
+      opacity: 1;
+      background: #F4F4F4;
+      color: #024BAA;
+    }
+    /* Link activo (página actual) */
+    &.active {
+      opacity: 1;
+      color: #024BAA;
+      font-weight: 700;
+    }
+
+    @media (max-width: 991px) { padding: 10px 0; display: block; margin: 0; }
+  }
+
+  /* Botón de menú lateral (hamburguesa circular) */
+  .navbar-btn {
+    margin-top: 6px;
+    @media (max-width: 991px) { position: absolute; right: 70px; top: 7px; }
+
+    .menu-bar {
+      font-size: 22px;
+      color: #024BAA;          /* antes: var(--white) → ahora azul */
+      height: 40px; width: 40px;
+      line-height: 40px; text-align: center;
+      border: 1px solid rgba(2, 75, 170, 0.3); /* borde azul semitransparente */
+      border-radius: 50%;
+      transition: all .3s ease;
+
+      /* Hover: se rellena de azul, ícono blanco */
+      &:hover {
+        color: #fff;
+        background: #024BAA;
+        border-color: #024BAA;
+      }
+    }
+  }
+}
+
+/* ─── DROPDOWN ───────────────────────────────────────────── */
+.dropdown-wrapper {
+  position: relative;
+}
+
+/* Flecha que rota cuando el dropdown está abierto */
+.dropdown-arrow {
+  font-size: 12px;
+  margin-left: 4px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+.dropdown-arrow.rotated {
+  transform: rotate(180deg);
+}
+
+/* El menú desplegable */
+.dropdown-menu-custom {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  min-width: 280px;
+  padding: 8px;
+  list-style: none;
+  margin: 0;
+  z-index: 9999;
+
+  /* Oculto por defecto */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+/* Visible cuando tiene clase .show */
+.dropdown-menu-custom.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Cada opción del dropdown */
+.dropdown-menu-custom li a {
+  display: flex !important;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px !important;
+  border-radius: 8px;
+  color: #333 !important;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  opacity: 1 !important;
+  font-weight: normal !important;
+}
+
+.dropdown-menu-custom li a:hover {
+  background: #F4F4F4 !important;
+  color: #024BAA !important;
+}
+
+.dropdown-menu-custom li a:hover i {
+  color: #024BAA;
+}
+
+/* Ícono de cada opción */
+.dropdown-menu-custom li a i {
+  font-size: 22px;
+  color: #024BAA;
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  background: #e8f0fd;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s ease;
+}
+
+/* Texto con título y subtítulo */
+.dropdown-menu-custom li a span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.dropdown-menu-custom li a strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+.dropdown-menu-custom li a small {
+  font-size: 12px;
+  color: #888;
+}
+
+/* En móvil el dropdown es estático (no flotante) */
+@media (max-width: 991px) {
+
+  /* El dropdown en móvil es estático, no flotante */
+  .dropdown-menu-custom {
+    position: static !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    border-left: 3px solid #024BAA;
+    margin: 0 0 8px 16px;
+    padding: 4px 0;
+    transform: none !important;
+    min-width: unset;
+
+    /* Cuando está cerrado no ocupa espacio */
+    display: none;
+  }
+
+  /* Cuando está abierto se muestra y el navbar crece */
+  .dropdown-menu-custom.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* El wrapper no tiene altura fija */
+  .dropdown-wrapper {
+    position: static;
+  }
+
+  /* El navbar-collapse crece con el contenido */
+  .navbar-collapse {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}

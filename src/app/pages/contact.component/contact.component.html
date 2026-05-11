@@ -1,0 +1,257 @@
+<section class="page-header">
+  <div class="bg-img" [style.backgroundImage]="'url(' + headerData.image + ')'"></div>
+  
+  <div class="overlay"></div>
+  
+  <div class="shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+  </div>
+
+  <div class="container">
+      <div class="page-header-content text-center">
+          <h1 class="title animate">{{ headerData.title }}</h1>
+          
+          <h4 class="sub-title animate">
+            {{ headerData.description }}
+          </h4>
+      </div>
+  </div>
+</section>
+  
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row">
+  
+        <!-- Info Cards -->
+        <div class="col-xl-4">
+          <div class="contact-item-wrapper">
+            <div class="row">
+              <div class="col-12 col-md-6 col-xl-12">
+                <div class="contact-item">
+                  <div class="contact-icon"><i class="lni lni-phone"></i></div>
+                  <div class="contact-content">
+                    <h4>Teléfono</h4>
+                    <p>+51 920 434 069</p>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-xl-12">
+                <div class="contact-item">
+                  <div class="contact-icon"><i class="lni lni-envelope"></i></div>
+                  <div class="contact-content">
+                    <h4>Correo</h4>
+                    <p>estudiocontableclac&#64;gmail.com</p>
+                  
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-xl-12">
+                <div class="contact-item">
+                  <div class="contact-icon"><i class="lni lni-map-marker"></i></div>
+                  <div class="contact-content">
+                    <h4>Dirección</h4>
+                    <p>Surquillo, Lima. Perú</p>
+                  
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-xl-12">
+                <div class="contact-item">
+                  <div class="contact-icon"><i class="lni lni-alarm-clock"></i></div>
+                  <div class="contact-content">
+                    <h4>Horario de Atención</h4>                    
+                    <p>09:00 AM – 6:30 PM Hora Perú</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Form -->
+        <!-- <div class="col-xl-8">
+          <div class="contact-form-wrapper">
+            <div class="row">
+              <div class="col-xl-10 col-lg-8 mx-auto">
+                <div class="section-title text-center">
+                  <span>Envíanos un mensaje</span>
+                  <h2>Respuesta garantizada en menos de 24 horas hábiles</h2>
+                  <p>Tu información es tratada con absoluta confidencialidad. Cuéntanos brevemente tu necesidad y el especialista encargado de esa área se pondrá en contacto contigo</p>
+                </div>
+              </div>
+            </div>
+  
+            @if (submitted()) {
+              <div class="alert-success-msg">
+                <i class="lni lni-checkmark-circle"></i>
+                ¡Mensaje enviado! Un especialista se pondrá en contacto contigo a la brevedad.
+              </div>
+            }
+  
+            <form class="contact-form" (ngSubmit)="onSubmit()" #f="ngForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="text"  name="name"    placeholder="Nombre o Empresa"    required [(ngModel)]="form.name"    />
+                </div>
+                <div class="col-md-6">
+                  <input type="email" name="email"   placeholder="Correo"   required [(ngModel)]="form.email"   />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="text"  name="phone"   placeholder="Celular"   required [(ngModel)]="form.phone"   />
+                </div>
+                <div class="col-md-6">
+                  <input type="text"  name="RUC" placeholder="RUC" required [(ngModel)]="form.RUC"  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <textarea name="message" placeholder="Escribenos tus consultas" rows="5" [(ngModel)]="form.message"></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="button text-center">
+                    <button type="submit" class="btn primary-btn rounded-full">
+                      Enviar mensaje
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div> -->
+        
+        <!-- Formulario -->
+      <div class="col-xl-8">
+        <div class="contact-form-wrapper">
+
+          <div class="section-title text-center">
+            <span>Envíanos un mensaje</span>
+            <h2>Respuesta garantizada en menos de 24 horas</h2>
+            <p>Tu información es tratada con absoluta confidencialidad. Cuéntanos brevemente tu necesidad y el especialista encargado de esa área se pondrá en contacto contigo</p>
+          </div>
+
+          @if (submitted()) {
+            <div class="alert-success-msg">
+              <i class="lni lni-checkmark-circle"></i>
+              ¡Mensaje enviado! Un especialista se pondrá en contacto contigo a la brevedad.
+            </div>
+          }
+
+          @if (hasError()) {
+            <div class="alert-error-msg">
+              <i class="lni lni-warning"></i>
+              {{ errorMsg() }}
+            </div>
+          }
+
+          <form class="contact-form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+
+            <div class="row">
+              <div class="col-md-6">
+                <input type="text" name="name" placeholder="Nombre o Empresa *"
+                  required minlength="3" [(ngModel)]="form.name" #nameField="ngModel"
+                  [class.input-error]="nameField.invalid && nameField.touched" />
+                @if (nameField.invalid && nameField.touched) {
+                  <span class="error-text">El nombre es obligatorio (mín. 3 caracteres)</span>
+                }
+              </div>
+              <div class="col-md-6">
+                <input type="email" name="email" placeholder="Correo electrónico *"
+                  required email [(ngModel)]="form.email" #emailField="ngModel"
+                  [class.input-error]="emailField.invalid && emailField.touched" />
+                @if (emailField.invalid && emailField.touched) {
+                  <span class="error-text">
+                    @if (emailField.errors?.['required']) { El correo es obligatorio }
+                    @if (emailField.errors?.['email']) { Ingresa un correo válido }
+                  </span>
+                }
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <input type="tel" name="phone" placeholder="Teléfono *"
+                  required pattern="[0-9+\s\-]{7,15}" [(ngModel)]="form.phone"
+                  #phoneField="ngModel"
+                  [class.input-error]="phoneField.invalid && phoneField.touched" />
+                @if (phoneField.invalid && phoneField.touched) {
+                  <span class="error-text">Ingresa un teléfono válido</span>
+                }
+              </div>
+              <div class="col-md-6">
+                <input type="text" name="RUC" placeholder="RUC *"
+                  required [(ngModel)]="form.RUC" #subjectField="ngModel"
+                  [class.input-error]="subjectField.invalid && subjectField.touched" />
+                @if (subjectField.invalid && subjectField.touched) {
+                  <span class="error-text">El RUC es obligatorio</span>
+                }
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <textarea name="message" placeholder="Tu mensaje *" rows="5"
+                  required minlength="10" [(ngModel)]="form.message"
+                  #messageField="ngModel"
+                  [class.input-error]="messageField.invalid && messageField.touched">
+                </textarea>
+                @if (messageField.invalid && messageField.touched) {
+                  <span class="error-text">El mensaje es obligatorio (mín. 10 caracteres)</span>
+                }
+              </div>
+            </div>
+
+            <!-- Widget de Turnstile — aparece justo antes del botón -->
+            <div class="row">
+              <div class="col-12 d-flex justify-content-center mb-3">
+                <div id="turnstile-container"></div>
+              </div>
+            </div>
+
+            <!-- Honeypot invisible -->
+            <input type="text" name="website" [(ngModel)]="form.honeypot"
+              style="display:none !important" tabindex="-1" autocomplete="off" />
+
+            <!-- Botón enviar -->
+            <div class="row">
+              <div class="col-12">
+                <div class="button text-center">
+                  <button type="submit" class="btn primary-btn rounded-full"
+                    [disabled]="isLoading()">
+                    @if (isLoading()) {
+                      <i class="lni lni-spinner-arrow"></i> Enviando...
+                    } @else {
+                      <i class="lni lni-envelope"></i> Enviar
+                    }
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </section>
+  
+  <!-- Map -->
+  <section class="map-section map-style-9">
+    <div class="map-container">
+      <iframe
+        style="border:0; height:500px; width:100%;"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31207.751675551444!2d-77.03128927716867!3d-12.11427638698881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c80ba9872641%3A0x5d9ba7056ed35c09!2sSurquillo!5e0!3m2!1ses!2spe!4v1777084760034!5m2!1ses!2spe"
+        allowfullscreen
+        loading="lazy"
+        title="Office Location">
+      </iframe>
+    </div>
+  </section>
+  

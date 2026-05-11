@@ -1,0 +1,13 @@
+<div class="single-news">
+    <div class="image">
+      <a href="#"><img class="thumb" [src]="post().image" alt="Blog" /></a>
+      <div class="meta-details">
+        <img class="thumb" [src]="post().authorImage" alt="Author" />
+        <span>BY {{ post().author }}</span>
+      </div>
+    </div>
+    <div class="content-body">
+      <h4 class="title"><a href="#">{{ post().title }}</a></h4>
+      <p>{{ post().excerpt }}</p>
+    </div>
+  </div>

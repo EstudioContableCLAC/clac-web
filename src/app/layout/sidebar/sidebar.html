@@ -1,0 +1,59 @@
+<div class="sidebar-left" [class.open]="sidebarService.isOpen()">
+    <div class="sidebar-close">
+      <a class="close" href="#" (click)="close(); $event.preventDefault()">
+        <i class="lni lni-close"></i>
+      </a>
+    </div>
+    <div class="sidebar-content">
+      <div class="sidebar-logo">
+        <a routerLink="/" (click)="close()">
+          <img src="assets/images/Logo-CLAC.svg" alt="Logo" style="height: 120px; width: auto;"/>
+        </a>
+      </div>
+      <p class="text">📊 Servicios Contables y Tecnológicos para Empresas y Emprendedores 🚀
+       
+      </p>
+      <p class="text"> 📋Contabilidad General.</p>
+        <p class="text">💰Asesoría Contable, Tributaria, Laboral y Empresarial.</p>
+        <p class="text"> 📈Constitución de Empresas.</p>
+        <p class="text"> ✨Automatizaciones e Integraciones de sistemas ERP</p>
+        <p class="text"> 👨‍🔬 Simulaciones de Ingeniería</p>
+      <div class="sidebar-menu">
+        <h5 class="menu-title">Links</h5>
+        <ul>
+          <li><a routerLink="/"        (click)="close()">Inicio</a></li>
+          <li><a routerLink="/about"   (click)="close()">Nostros</a></li>
+          <li><a routerLink="/services"(click)="close()">Servicios</a></li>
+          <li><a routerLink="/pricing" (click)="close()">Planes</a></li>
+          <li><a routerLink="/contact" (click)="close()">Contacto</a></li>
+        </ul>
+      </div>
+  
+      <div class="sidebar-social">
+        <h5 class="social-title">Síguenos en</h5>
+        <ul>
+          <li><a href="https://api.whatsapp.com/send?phone=51920434069&text=Hola!%20Quisiera%20conocer%20más%20sobre%20sus%20servicios%20😀" target="_blank">
+            <i class="lni lni-whatsapp"></i>
+          </a></li>        
+          <li><a href="https://www.facebook.com/Soluciones.CLAC" target="_blank">
+            <i class="lni lni-facebook-filled"></i>
+          </a></li>        
+          <li><a href="https://www.linkedin.com/company/estrategias-soluciones-integrales-clac-e-i-r-l/?viewAsMember=true" target="_blank">
+            <i class="lni lni-linkedin-original"></i>
+          </a></li>
+          <li><a href="https://www.instagram.com/soluciones_clac" target="_blank">
+            <i class="lni lni-instagram-original"></i>
+          </a></li>
+          <li><a href="https://www.tiktok.com/@soluciones_clac" target="_blank">
+            <i class="lni lni-tiktok"></i>
+          </a></li>
+          <li><a href="https://www.youtube.com/@SolucionesCLAC" target="_blank">
+            <i class="lni lni-youtube"></i>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="overlay-left" [class.open]="sidebarService.isOpen()" (click)="close()"></div>
+  

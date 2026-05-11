@@ -1,0 +1,106 @@
+<!-- PAGE HEADER -->
+<section class="service-page-header">
+  <div class="service-page-header__overlay"></div>
+  <div class="container">
+    <div class="service-page-header__content">
+      <h1>{{ pageTitle() }}</h1>
+      <div class="breadcrumb-wrap">
+        <a routerLink="/">Inicio</a>
+        <span>/</span>       
+        <span class="current">{{ pageTitle() }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENIDO PRINCIPAL -->
+<section class="service-details-section">
+  <div class="container">
+    <div class="row">
+
+      <!-- COLUMNA IZQUIERDA: contenido -->
+      <div class="col-lg-8">
+        <div class="service-details-content">
+
+          <!-- Imagen principal -->
+          <div class="service-details-img">
+            <img [src]="data().heroImage" [alt]="data().title" />
+          </div>
+
+          <!-- Título y descripción -->
+          <h2 class="details-title">{{ data().title }}</h2>
+          <p>{{ data().description }}</p>
+
+          <!-- Grid de características -->
+          <div class="service-thumb-wrap">
+            <ul class="thumb-list">
+              @for (feature of data().features; track feature) {
+                <li>
+                  <i class="lni lni-checkmark-circle"></i>
+                  {{ feature }}
+                </li>
+              }
+            </ul>
+          </div>
+
+          <!-- Sección reto/desafío -->
+          <h2 class="details-title">El desafío del servicio</h2>
+          <p>{{ data().challenge }}</p>
+
+          <!-- FAQ Accordion -->
+          <div class="service-details-accordion">
+            @for (faq of data().faqs; track faq.question; let i = $index) {
+              <div class="accordion-item" [class.open]="openFaq() === i">
+                <button class="accordion-btn" (click)="toggleFaq(i)">
+                  <span>{{ i + 1 < 10 ? '0' + (i + 1) : (i + 1) }} {{ faq.question }}</span>
+                  <i class="lni" [class.lni-chevron-down]="openFaq() !== i"
+                     [class.lni-chevron-up]="openFaq() === i"></i>
+                </button>
+                @if (openFaq() === i) {
+                  <div class="accordion-body">
+                    {{ faq.answer }}
+                  </div>
+                }
+              </div>
+            }
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COLUMNA DERECHA: sidebar -->
+      <div class="col-lg-4">
+
+        <!-- Lista de servicios -->
+        <div class="service-widget">
+          <h4 class="widget-header">Nuestros Servicios</h4>
+          <ul class="category-list">
+            @for (service of services; track service.route) {
+              <li>
+                <a [routerLink]="service.route"
+                   routerLinkActive="active">
+                  {{ service.label }}
+                  <i class="lni lni-arrow-right"></i>
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- CTA Widget -->
+        <div class="service-widget service-cta-widget">
+          <div class="service-cta-content">
+            <i class="lni lni-phone-set"></i>
+            <h4>¿Necesitas ayuda?</h4>
+            <p>Contáctanos y te asesoramos sin compromiso</p>
+            <a href="tel:+51920434069" class="cta-phone">+51 920 434 069</a>
+            <span class="cta-schedule">Lun–Vie: 9:00 AM – 6:00 PM</span>
+            <a routerLink="/contact" class="btn cta-btn">Contáctanos</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

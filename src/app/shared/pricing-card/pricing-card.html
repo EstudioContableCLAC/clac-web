@@ -1,0 +1,29 @@
+<div class="pricing-style-fourteen" [class.middle]="plan().isMiddle">
+    <div class="table-head">
+      <h6 class="title">{{ plan().name }}</h6>
+      <p>{{ plan().description }}</p>
+      <div class="price">
+        <h2 class="amount">
+          <span class="currency">$</span>{{ plan().price }}<span class="duration">/mo</span>
+        </h2>
+      </div>
+    </div>
+    <div class="light-rounded-buttons">
+      <a href="#"
+         class="btn"
+         [class.primary-btn]="plan().isMiddle"
+         [class.primary-btn-outline]="!plan().isMiddle">
+        Start free trial
+      </a>
+    </div>
+    <div class="table-content">
+      <ul class="table-list">
+        @for (feature of plan().features; track feature.text) {
+          <li>
+            <i class="lni lni-checkmark-circle" [class.deactive]="!feature.active"></i>
+            {{ feature.text }}
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
