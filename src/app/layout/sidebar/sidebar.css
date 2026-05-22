@@ -69,3 +69,63 @@
     flex-wrap: wrap;
     gap: 8px;
   }
+
+  /* --- Lógica del Acordeón en Sidebar --- */
+.sidebar-dropdown-toggle {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Animación de la flechita */
+.dropdown-arrow {
+  transition: transform 0.3s ease;
+  font-size: 12px;
+}
+.dropdown-arrow.rotated {
+  transform: rotate(180deg);
+}
+
+/* Submenú oculto por defecto */
+.sidebar-submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding-left: 15px; /* Sangría para que se note que es un submenú */
+  background: rgba(0, 0, 0, 0.03); /* Un fondo ligeramente más oscuro (opcional) */
+  border-radius: 8px;
+  margin-top: 0;
+}
+
+/* Submenú visible */
+.sidebar-submenu.show {
+  max-height: 400px; /* Un valor lo suficientemente alto para mostrar tus items */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 5px;
+}
+
+/* Ajuste visual de los enlaces internos del submenú */
+.sidebar-submenu li {
+  margin-bottom: 0 !important;
+}
+
+.sidebar-submenu li a {
+  font-size: 14px !important;
+  padding: 10px 15px !important;
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  color: #555; /* Un tono un poquito más suave que los links principales */
+}
+
+.sidebar-submenu li a i {
+  color: #024BAA;
+  font-size: 16px;
+}
+
+.sidebar-submenu li a:hover {
+  color: #024BAA;
+  background: transparent !important; /* Mantiene la estética limpia */
+  padding-left: 20px !important; /* Pequeña animación al hacer hover */
+}

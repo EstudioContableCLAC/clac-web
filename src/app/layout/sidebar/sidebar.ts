@@ -1,4 +1,4 @@
-import {  Component, inject } from '@angular/core';
+import {  Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SidebarService } from '../../services/sidebar.service';
 
@@ -10,6 +10,20 @@ import { SidebarService } from '../../services/sidebar.service';
 })
 export class Sidebar { 
   sidebarService = inject(SidebarService);
-  close(): void { this.sidebarService.close(); }
+  
+  // Señal para controlar el submenú de servicios
+  isServicesOpen = signal(false);
+
+  close(): void { 
+    this.sidebarService.close(); 
+    // Opcional: Contraer el submenú cuando se cierra el sidebar general
+    this.isServicesOpen.set(false);
+  }
+
+  // Función para abrir/cerrar el acordeón de servicios
+  toggleServices(e: Event): void {
+    e.preventDefault();
+    this.isServicesOpen.update(v => !v);
+  }
 
 }

@@ -1,1 +1,281 @@
-<p>ingenieria.component works!</p>,
+<section class="service-page-header">
+  
+    <video
+      class="service-page-header__video"
+      src="assets/images/services/videos/Ingenieria.mp4" 
+      poster="assets/images/services/images/poster-software.jpg"
+      autoplay
+      muted
+      loop
+      playsinline>
+    </video>
+  
+    <div class="service-page-header__overlay"></div>
+  
+    <div class="container">
+      <div class="service-page-header__content">
+        <h1>Ingeniería, Simulaciones CFD e Innovación Predictiva</h1>
+        <div class="breadcrumb-wrap">
+          <a routerLink="/">Inicio</a>
+          <span>/</span>
+          <span class="current">Ingeniería</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="service-details-section">
+    <div class="container">
+      <div class="row">
+  
+        <div class="col-lg-8">
+  
+          <div class="sw-intro">
+            <h2>Física y tecnología aplicada a la industria en Perú</h2>
+            <p>
+              En CLAC Ingeniería validamos tus proyectos antes de que cuesten dinero en la obra física. 
+              Utilizamos <strong>Dinámica de Fluidos Computacional (CFD)</strong>, estudios de eficiencia energética 
+              y modelado avanzado para optimizar instalaciones HVAC e industriales.
+            </p>
+            <p>
+              Además, integramos el poder de la <strong>Inteligencia Artificial y los Gemelos Digitales</strong> 
+              para transformar tu infraestructura estática en una operación inteligente y predecible.
+            </p>
+          </div>
+  
+          <div class="sw-sap-block">
+            <div class="sw-sap-header">
+              <div class="sw-sap-icon">
+                <i class="lni lni-cogs"></i>
+              </div>
+              <div>
+                <h2>Simulación y Eficiencia Energética</h2>
+                <p>Optimizamos el rendimiento térmico y luminoso de tu infraestructura</p>
+              </div>
+            </div>
+  
+            <p class="sw-sap-desc">
+              Reemplazamos las suposiciones teóricas por simulaciones computacionales exactas. 
+              Garantizamos que el aire acondicionado (HVAC) funcione sin zonas calientes, que la iluminación 
+              cumpla las normas de seguridad y que el consumo energético de tu planta sea el mínimo necesario.
+            </p>
+  
+            <h3 class="sw-subtitle">Capacidades Analíticas</h3>
+            <div class="sw-addons-grid">
+              @for (service of cfdServices; track service.title) {
+                <div class="sw-addon-card">
+                  <div class="sw-addon-icon">
+                    <i [class]="service.icon"></i>
+                  </div>
+                  <div>
+                    <h4>{{ service.title }}</h4>
+                    <p>{{ service.description }}</p>
+                  </div>
+                </div>
+              }
+            </div>
+  
+            <a routerLink="/contact" class="btn sw-cta-btn">
+              <i class="lni lni-investigacion"></i> Solicitar Auditoría
+            </a>
+          </div>
+  
+          <div class="sw-videos-section">
+            <h2 class="sw-section-title">Resultados Visibles (Nuestros Casos)</h2>
+            <p class="sw-section-subtitle">
+              Observa cómo "vemos lo invisible": mapas de calor, flujos de aire y renderizado fotométrico.
+            </p>
+            <div class="row">
+              @for (item of demoItems; track item.id) {
+                <div class="col-md-6 col-12 mb-4">
+                  <div class="sw-video-card">
+                    <div class="sw-video-wrapper" style="background: #000;">
+                      @if (item.type === 'video') {
+                        <iframe
+                          [src]="item.embedUrl"
+                          frameborder="0"
+                          allowfullscreen
+                          allow="encrypted-media; picture-in-picture"
+                          [title]="item.title"
+                          loading="lazy">
+                        </iframe>
+                      } @else {
+                        <img 
+                        [src]="item.url" 
+                        [alt]="item.title" 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
+                      }
+                    </div>
+                    <div class="sw-video-info">
+                      <h4>{{ item.title }}</h4>
+                      <p>{{ item.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+  
+          <div class="sw-featured-case">
+            <div class="row align-items-center">
+              
+              <div class="col-md-5 col-12 mb-4 mb-md-0">
+                <div class="sw-featured-img-wrapper">
+                  <img 
+                    src="assets/images/services/images/CFDCOVID.png" 
+                    alt="Simulación CFD Dispersión de Partículas COVID-19" 
+                    class="img-fluid sw-featured-img">
+                  
+                  
+                </div>
+              </div>
+  
+              <div class="col-md-7 col-12">
+                <div class="sw-featured-content">
+                  <span class="sw-featured-tag">Bioseguridad y Salud Ocupacional</span>
+                  <h3 class="sw-featured-title">Análisis de Dispersión de Partículas (Aerosoles)</h3>
+                  <p>
+                    El diseño de ventilación va mucho más allá del confort térmico; es una cuestión de salud pública. 
+                    En este caso de estudio, realizamos una <strong>simulación CFD avanzada</strong> para modelar la 
+                    expansión de partículas provenientes de tos y estornudos en espacios cerrados.
+                  </p>
+                  <p>
+                    Al mapear el flujo de los aerosoles, logramos rediseñar el sistema de extracción e inyección 
+                    de aire para mitigar el riesgo de contagio (COVID-19 y otros patógenos), garantizando 
+                    renovaciones de aire efectivas y entornos de trabajo seguros bajo normativa.
+                  </p>
+                  <ul class="sw-featured-list">
+                    <li><i class="lni lni-checkmark-circle"></i> Análisis predictivo de trayectorias de partículas.</li>
+                    <li><i class="lni lni-checkmark-circle"></i> Optimización de inyectores y extractores de aire.</li>
+                    <li><i class="lni lni-checkmark-circle"></i> Validación científica para auditorías de bioseguridad.</li>
+                  </ul>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+
+          <div class="sw-other-services">
+            <h2 class="sw-section-title">I+D: IA y Gemelos Digitales</h2>
+            <p class="sw-section-subtitle mb-4">
+              El futuro de la industria es impulsado por datos. Desarrollamos modelos predictivos y de 
+              visión por computadora para llevar tu automatización al siguiente nivel.
+            </p>
+            <div class="row">
+              @for (service of innovationServices; track service.title) {
+                <div class="col-md-6 col-12">
+                  <div class="sw-service-card">
+                    <div class="sw-service-icon">
+                      <i [class]="service.icon"></i>
+                    </div>
+                    <div>
+                      <h4>{{ service.title }}</h4>
+                      <p>{{ service.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+  
+          <div class="sw-reasons">
+            <h2 class="sw-section-title">¿Por qué confiar en nosotros?</h2>
+            <div class="row">
+              @for (reason of reasons; track reason.title) {
+                <div class="col-md-4 col-12">
+                  <div class="sw-reason-card">
+                    <i [class]="reason.icon"></i>
+                    <h4>{{ reason.title }}</h4>
+                    <p>{{ reason.description }}</p>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+  
+          <div class="sw-faq">
+            <h2 class="sw-section-title">Preguntas Frecuentes sobre Ingeniería Analítica</h2>
+            @for (faq of faqs; track faq.question; let i = $index) {
+              <div class="sw-faq-item" [class.open]="faq.open">
+                <button class="sw-faq-btn" (click)="toggleFaq(i)">
+                  <span>{{ faq.question }}</span>
+                  <i class="lni" [class.lni-chevron-down]="!faq.open"
+                     [class.lni-chevron-up]="faq.open"></i>
+                </button>
+                @if (faq.open) {
+                  <div class="sw-faq-answer">
+                    <p>{{ faq.answer }}</p>
+                  </div>
+                }
+              </div>
+            }
+          </div>
+  
+          <div class="sw-cta-final">
+            <h2>¿Tienes un desafío técnico o de infraestructura?</h2>
+            <p>
+              Permítenos evaluar tu caso. Ya sea una simulación térmica o la implementación de un modelo de IA, 
+              tenemos la capacidad para desarrollarlo.
+            </p>
+            <div class="sw-cta-buttons">
+              <a routerLink="/contact" class="btn sw-btn-primary">
+                <i class="lni lni-envelope"></i> Contactar a un Ingeniero
+              </a>
+              <a href="https://wa.me/51920434069?text=Hola!%20Quisiera%20información%20sobre%20servicios%20de%20Ingeniería%20y%20CFD"
+                 target="_blank" rel="noopener" class="btn sw-btn-whatsapp">
+                <i class="lni lni-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="col-lg-4">
+          
+          <div class="service-widget">
+            <h4 class="widget-header">Nuestros Servicios</h4>
+            <ul class="category-list">
+              <li><a routerLink="/services/contabilidad" routerLinkActive="active">Contabilidad y Finanzas <i class="lni lni-arrow-right"></i></a></li>
+              <li><a routerLink="/services/tributacion" routerLinkActive="active">Tributación <i class="lni lni-arrow-right"></i></a></li>
+              <li><a routerLink="/services/laboral" routerLinkActive="active">Laboral <i class="lni lni-arrow-right"></i></a></li>
+              <li><a routerLink="/services/software" routerLinkActive="active">Software <i class="lni lni-arrow-right"></i></a></li>
+              <li><a routerLink="/services/ingenieria" routerLinkActive="active">Ingeniería <i class="lni lni-arrow-right"></i></a></li>
+            </ul>
+          </div>
+  
+          <div class="service-widget service-cta-widget">
+            <div class="service-cta-content">
+              <i class="lni lni-display-alt"></i>
+              <h4>¿Proyectos complejos?</h4>
+              <p>Evalúa tus diseños térmicos y de fluidos con nuestros expertos</p>
+              <a href="tel:+51920434069" class="cta-phone">+51 920 434 069</a>
+              <span class="cta-schedule">Lun–Vie: 9:00 AM – 6:00 PM</span>
+              <a routerLink="/contact" class="btn cta-btn">Agendar Reunión</a>
+            </div>
+          </div>
+  
+          <div class="service-widget brochure-widget">
+            <h4 class="widget-header">Material Informativo</h4>
+            <div class="brochure-preview">
+              <a href="assets/docs/brochure-ingenieria.pdf" download="Brochure-Ingenieria-CLAC.pdf" style="display: block; text-decoration: none;">
+                <div class="brochure-thumb">
+                  <img src="assets/images/services/images/brochure-preview.png" alt="Brochure Ingeniería" />
+                  <div class="brochure-thumb__overlay">
+                    <i class="lni lni-cloud-download"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="brochure-info">
+              <h5>Brochure I+D / Ingeniería</h5>
+              <p>Descubre nuestros casos de éxito en simulaciones CFD y proyectos.</p>
+            </div>
+            <a href="assets/docs/brochure-ingenieria.pdf" download="Brochure-Ingenieria-CLAC.pdf" class="btn brochure-btn">
+              <i class="lni lni-download"></i> Descargar Brochure
+            </a>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>

@@ -42,10 +42,10 @@ export class ServiceDetailComponent {
 
   // Lista de servicios para el sidebar
   services = [
-    { label: 'Contabilidad y Finanzas', route: '/services/contabilidad' },
-    { label: 'Tributación',                  route: '/services/tributacion'      },
-    { label: 'Laboral',                  route: '/services/laboral'      },
-    { label: 'Software',                  route: '/services/software'      },
-    { label: 'Ingeniería',                route: '/services/ingenieria'    },
+    { label: 'Contabilidad y Finanzas',       route: '/services/contabilidad' },
+    { label: 'Tributación',                   route: '/services/tributacion'      },
+    { label: 'Laboral',                       route: '/services/laboral'      },
+    { label: 'Software',                      route: '/services/software'      },
+    { label: 'Ingeniería',                    route: '/services/ingenieria'    },
   ];
 }

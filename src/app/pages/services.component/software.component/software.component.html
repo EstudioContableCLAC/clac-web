@@ -1,1 +1,260 @@
-<p>software.component works!</p>,
+<section class="service-page-header">
+  
+  <video
+    class="service-page-header__video"
+    src="assets/images/services/videos/Software.mp4"
+    poster="assets/images/services/images/poster-software.jpg"
+    autoplay
+    muted
+    loop
+    playsinline>
+  </video>
+
+  <div class="service-page-header__overlay"></div>
+
+  <div class="container">
+    <div class="service-page-header__content">
+      <h1>Consultoría SAP y Desarrollo de Software Empresarial</h1>
+      <div class="breadcrumb-wrap">
+        <a routerLink="/">Inicio</a>
+        <span>/</span>
+        <span class="current">Software</span>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  <!-- ══ CONTENIDO PRINCIPAL + SIDEBAR ════════════════════════ -->
+  <section class="service-details-section">
+    <div class="container">
+      <div class="row">
+  
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="col-lg-8">
+  
+          <!-- 1. INTRODUCCIÓN SEO ───────────────────────────── -->
+          <div class="sw-intro">
+            <h2>Consultoría SAP y desarrollo de software empresarial en Lima, Perú</h2>
+            <p>
+              En CLAC ofrecemos soluciones tecnológicas integrales para empresas peruanas que buscan
+              automatizar procesos, tomar mejores decisiones con datos y conectar sus sistemas de
+              información. Somos especialistas en <strong>soporte e implementación SAP Business One</strong>,
+              desarrollo de reportes con <strong>Power BI</strong>, sistemas web a medida y
+              <strong>automatización de procesos empresariales</strong> en Lima y a nivel nacional.
+            </p>
+            <p>
+              Si tu empresa usa SAP y necesita un consultor confiable, o si buscas digitalizar procesos
+              manuales, estamos aquí para ayudarte.
+            </p>
+          </div>
+  
+          <!-- 2. BLOQUE SAP PRINCIPAL ───────────────────────── -->
+          <div class="sw-sap-block">
+            <div class="sw-sap-header">
+              <div class="sw-sap-icon">
+                <i class="lni lni-database"></i>
+              </div>
+              <div>
+                <h2>Soporte integral SAP Business One</h2>
+                <p>Implementación, desarrollo y soporte para empresas que usan o planean adoptar SAP</p>
+              </div>
+            </div>
+  
+            <p class="sw-sap-desc">
+              Brindamos un servicio completo de consultoría SAP Business One: desde la implementación
+              inicial de módulos de logística y tesorería, hasta el soporte continuo, desarrollo de
+              reportes personalizados y creación de <strong>addons</strong> que automatizan procesos
+              específicos de tu empresa, incluyendo integraciones con SUNAT, SIRE y otros sistemas.
+            </p>
+  
+            <!-- Grid de addons -->
+            <h3 class="sw-subtitle">Addons y automatizaciones disponibles</h3>
+            <div class="sw-addons-grid">
+              @for (addon of sapAddons; track addon.title) {
+                <div class="sw-addon-card">
+                  <div class="sw-addon-icon">
+                    <i [class]="addon.icon"></i>
+                  </div>
+                  <div>
+                    <h4>{{ addon.title }}</h4>
+                    <p>{{ addon.description }}</p>
+                  </div>
+                </div>
+              }
+            </div>
+  
+            <a routerLink="/contact" class="btn sw-cta-btn">
+              <i class="lni lni-comments"></i>
+              Consultar sobre SAP
+            </a>
+          </div>
+  
+          <!-- 3. VIDEOS DE DEMOSTRACIÓN ─────────────────────── -->
+          <div class="sw-videos-section">
+            <h2 class="sw-section-title">Mira nuestras soluciones en acción</h2>
+            <p class="sw-section-subtitle">
+              Demostraciones reales de los addons y herramientas que desarrollamos para nuestros clientes.
+            </p>
+            <div class="row">
+              @for (video of demoVideos; track video.id) {
+                <div class="col-md-6 col-12">
+                  <div class="sw-video-card">
+                    <div class="sw-video-wrapper">
+                      <!-- ← Usa video.embedUrl directamente, no llames a ningún método -->
+                      <iframe
+                        [src]="video.embedUrl"
+                        frameborder="0"
+                        allowfullscreen
+                        allow="encrypted-media; picture-in-picture"
+                        [title]="video.title"
+                        loading="lazy">
+                      </iframe>
+                    </div>
+                    <div class="sw-video-info">
+                      <h4>{{ video.title }}</h4>
+                      <p>{{ video.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+  
+          <!-- 4. OTROS SERVICIOS EN GRID ───────────────────── -->
+          <div class="sw-other-services">
+            <h2 class="sw-section-title">Más soluciones tecnológicas</h2>
+            <div class="row">
+              @for (service of otherServices; track service.title) {
+                <div class="col-md-6 col-12">
+                  <div class="sw-service-card">
+                    <div class="sw-service-icon">
+                      <i [class]="service.icon"></i>
+                    </div>
+                    <div>
+                      <h4>{{ service.title }}</h4>
+                      <p>{{ service.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+  
+          <!-- 5. POR QUÉ ELEGIRNOS ───────────────────────────── -->
+          <div class="sw-reasons">
+            <h2 class="sw-section-title">¿Por qué elegir CLAC para tu proyecto de software?</h2>
+            <div class="row">
+              @for (reason of reasons; track reason.title) {
+                <div class="col-md-4 col-12">
+                  <div class="sw-reason-card">
+                    <i [class]="reason.icon"></i>
+                    <h4>{{ reason.title }}</h4>
+                    <p>{{ reason.description }}</p>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+  
+          <!-- 6. FAQ ─────────────────────────────────────────── -->
+          <div class="sw-faq">
+            <h2 class="sw-section-title">Preguntas frecuentes sobre nuestros servicios de software</h2>
+            @for (faq of faqs; track faq.question; let i = $index) {
+              <div class="sw-faq-item" [class.open]="faq.open">
+                <button class="sw-faq-btn" (click)="toggleFaq(i)">
+                  <span>{{ faq.question }}</span>
+                  <i class="lni" [class.lni-chevron-down]="!faq.open"
+                     [class.lni-chevron-up]="faq.open"></i>
+                </button>
+                @if (faq.open) {
+                  <div class="sw-faq-answer">
+                    <p>{{ faq.answer }}</p>
+                  </div>
+                }
+              </div>
+            }
+          </div>
+  
+          <!-- 7. CTA FINAL ───────────────────────────────────── -->
+          <div class="sw-cta-final">
+            <h2>¿Tienes un proyecto de software en mente?</h2>
+            <p>
+              Cuéntanos tu necesidad y te proponemos una solución a medida sin compromiso.
+              Atendemos empresas en Lima y a nivel nacional.
+            </p>
+            <div class="sw-cta-buttons">
+              <a routerLink="/contact" class="btn sw-btn-primary">
+                <i class="lni lni-envelope"></i>
+                Escribirnos
+              </a>
+              <a href="https://wa.me/51920434069?text=Hola!%20Quisiera%20información%20sobre%20servicios%20de%20software"
+                 target="_blank" rel="noopener" class="btn sw-btn-whatsapp">
+                <i class="lni lni-whatsapp"></i>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+  
+        </div>
+  
+        <!-- COLUMNA DERECHA: sidebar -->
+        <div class="col-lg-4">
+  
+          <!-- Lista de servicios -->
+          <div class="service-widget">
+            <h4 class="widget-header">Nuestros Servicios</h4>
+            <ul class="category-list">
+              <li><a routerLink="/services/contabilidad" routerLinkActive="active">Contabilidad y Finanzas <i class="lni lni-arrow-right"></i></a></li>
+              <li><a routerLink="/services/tributacion"     routerLinkActive="active">Tributación <i class="lni lni-arrow-right"></i></a></li>
+              <li><a routerLink="/services/laboral"     routerLinkActive="active">Laboral <i class="lni lni-arrow-right"></i></a></li>
+              <li><a routerLink="/services/software"     routerLinkActive="active">Software <i class="lni lni-arrow-right"></i></a></li>
+              <li><a routerLink="/services/ingenieria"   routerLinkActive="active">Ingeniería <i class="lni lni-arrow-right"></i></a></li>
+            </ul>
+          </div>
+  
+          <!-- CTA Widget -->
+          <div class="service-widget service-cta-widget">
+            <div class="service-cta-content">
+              <i class="lni lni-phone-set"></i>
+              <h4>¿Necesitas ayuda?</h4>
+              <p>Contáctanos y evaluamos tu proyecto sin compromiso</p>
+              <a href="tel:+51920434069" class="cta-phone">+51 920 434 069</a>
+              <span class="cta-schedule">Lun–Vie: 9:00 AM – 6:00 PM</span>
+              <a routerLink="/contact" class="btn cta-btn">Contáctanos</a>
+            </div>
+          </div>
+  
+           
+          <!-- Brochure Widget -->
+          <div class="service-widget brochure-widget">
+            <h4 class="widget-header">Material Informativo</h4>
+            <!-- Previsualización del PDF -->
+           <div class="brochure-preview">
+            <a href="assets/docs/brochure-CLAC.pdf" download="Brochure-CLAC.pdf" style="display: block; text-decoration: none;">
+              <div class="brochure-thumb">
+                <img 
+                  src="assets/images/services/images/brochure-preview.png" 
+                  alt="Brochure CLAC" />
+                <div class="brochure-thumb__overlay">
+                  <i class="lni lni-cloud-download"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+            <div class="brochure-info">
+              <h5>Brochure Corporativo</h5>
+              <p>Descubre todos nuestros servicios en un solo documento.</p>
+            </div>
+            <a href="assets/docs/brochure-clac.pdf" download="Brochure-CLAC.pdf" class="btn brochure-btn">
+              <i class="lni lni-download"></i>
+              Descargar Brochure
+            </a>
+            <span class="brochure-meta">
+              <i class="lni lni-files"></i> PDF · 12 páginas
+            </span>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>

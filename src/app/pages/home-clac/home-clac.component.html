@@ -83,7 +83,7 @@
     <!-- Tarjetas del portafolio -->
     <div class="row grid" style="margin-top: 30px;">
       @for (item of filteredItems(); track item.title) {
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-lg-4 col-sm-6" @filterAnimation>
           <div class="portfolio-style-three">
             <div class="portfolio-image">
               <img [src]="item.image" [alt]="item.title" />

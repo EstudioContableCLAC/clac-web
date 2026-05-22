@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import {SectionTitle} from '../../shared/section-title/section-title';
 import { BlogCard, BlogPost } from '../../shared/blog-card/blog-card';
 import {Title} from '@angular/platform-browser';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 declare var GLightbox: any;
 
@@ -29,6 +30,17 @@ export interface Slide {
   templateUrl: './home-clac.component.html',
   styleUrl: './home-clac.component.css',
   standalone: true,
+  animations: [
+    trigger('filterAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'scale(0.6)' }), 
+        animate('400ms cubic-bezier(0.25, 0.8, 0.25, 1)', style({ opacity: 1, transform: 'scale(1)' }))
+      ]),
+      transition(':leave', [
+        animate('300ms ease-in-out', style({ opacity: 0, transform: 'scale(0.6)', width: 0, padding: 0, margin: 0 }))
+      ])
+    ])
+  ],
 })
 
 
