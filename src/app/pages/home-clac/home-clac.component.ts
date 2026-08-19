@@ -68,7 +68,7 @@ slides: Slide[] = [
     buttonLink: '/contact'
   },
   {
-    image: 'assets/images/slider/slider-2.jpg',
+    image: 'assets/images/slider/slider-2.png',
     title: 'Estrategias y Soluciones Integrales para tu empresa',
     description: 'Contabilidad, ingeniería e informática bajo un mismo techo.',
     buttonText: 'Nuestros Servicios',

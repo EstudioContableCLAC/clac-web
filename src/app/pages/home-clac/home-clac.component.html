@@ -108,7 +108,7 @@
             </div>
             <div class="portfolio-text">
               <h4 class="portfolio-title">
-                <a href="#">{{ item.title }}</a>
+                <a [routerLink]="item.link">{{ item.title }}</a>
               </h4>
               <p class="text">{{ item.description }}</p>
             </div>
@@ -159,6 +159,38 @@
     </div>
   </div>
 </div>
+
+<!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+
+
+<!-- ===== INSTAGRAM FEED ===== -->
+<section class="instagram-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <h2 class="instagram-title">Lo último en nuestra comunidad</h2>
+        <p class="instagram-subtitle">Conoce un poco más de lo que hacemos día a día.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div data-behold-id="A9sf3WbFCIL8mnOOYt0r"></div>
+      </div>
+    </div>
+    <div class="row justify-content-center" style="margin-top: 24px;">
+      <div class="col-auto">
+        <a href="https://www.instagram.com/soluciones_clac"
+           target="_blank"
+           rel="noopener"
+           class="btn instagram-follow-btn">
+          <i class="lni lni-instagram-original"></i>
+          Síguenos en Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
   <!-- ===== BLOG ===== -->
   <!-- <div class="latest-news-area section">
     <app-section-title

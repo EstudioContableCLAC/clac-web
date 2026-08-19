@@ -2,6 +2,12 @@
 
 <app-navbar></app-navbar>
     <app-sidebar></app-sidebar>
+    <!-- Loader mientras cambia de página -->
+    @if (loadingService.isLoading()) {
+      <div class="page-loader">
+        <div class="page-loader__spinner"></div>
+      </div>
+    }
     <main>
       <router-outlet></router-outlet>
     </main>

@@ -8,8 +8,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/svg+xml" href="assets/images/377420-PBNOKS-469.svg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+ <!-- Estilos del splash — inline para que carguen inmediatamente sin esperar CSS externo -->
+ <style>
+  #app-splash {
+    position: fixed;
+    inset: 0;
+    background: #024BAA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  #app-splash.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  #app-splash .splash-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 32px;
+    animation: splash-pulse 1.5s ease-in-out infinite;
+  }
+
+  #app-splash .splash-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: splash-spin 0.8s linear infinite;
+  }
+
+  #app-splash .splash-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-top: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  @keyframes splash-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes splash-pulse {
+    0%, 100% { opacity: 1;   transform: scale(1);    }
+    50%       { opacity: 0.8; transform: scale(0.97); }
+  }
+</style>
+
 </head>
+
 <body>
   <app-root></app-root>
+  <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<script>
+  (function() {
+    if(window.__bhldScript)return;window.__bhldScript=true;
+    const d=document,s=d.createElement("script");s.type="module";
+    s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);
+  })();
+</script>
 </body>
 </html>
