@@ -86,7 +86,7 @@
         <div class="col-lg-4 col-sm-6" @filterAnimation>
           <div class="portfolio-style-three">
             <div class="portfolio-image">
-              <img [src]="item.image" [alt]="item.title" />
+              <img [src]="item.image" [alt]="item.title" loading="lazy"/>
               <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                 <div class="portfolio-content">
                   <!-- <div class="portfolio-icon">
@@ -119,46 +119,6 @@
 
   </div>
 </section>
-  
- <!-- ===== CALL TO ACTION ===== -->
- <section class="call-action">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-9">
-        <div class="inner-content">
-          <h2>Lleva tu empresa al siguiente nivel<br />con soluciones integrales </h2>
-          <p>
-            Te ayudamos a optimizar tus procesos contables, financieros y tecnológicos de manera eficiente y segura en Perú y Latinoamérica.
-          </p>
-          <div class="light-rounded-buttons">
-            <a routerLink="/contact" class="btn primary-btn-outline">Solicitar asesoría</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="brand-area section">
-  <app-section-title
-    badge="Nuestros Clientes"
-    title="Crecemos junto a los mejores"
-    subtitle="Nos sentimos orgullosos de ser aliados estratégicos de empresas que apuestan por la innovación y la eficiencia operativa en Latinoamérica. Cada logo representa un desafío resuelto con éxito.">
-  </app-section-title>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 offset-lg-2 col-12">
-        <div class="clients-logos">
-          @for (logo of clientLogos; track logo.alt) {
-            <div class="single-image">
-              <img [src]="logo.src" [alt]="logo.alt" />
-            </div>
-          }
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
 
@@ -186,6 +146,49 @@
           <i class="lni lni-instagram-original"></i>
           Síguenos en Instagram
         </a>
+      </div>
+    </div>
+  </div>
+</section>
+  
+ 
+
+ <!-- ===== CLIENTES ===== -->
+<div class="brand-area section">
+  <app-section-title
+    badge="Nuestros Clientes"
+    title="Crecemos junto a los mejores"
+    subtitle="Nos sentimos orgullosos de ser aliados estratégicos de empresas que apuestan por la innovación y la eficiencia operativa en Latinoamérica. Cada logo representa un desafío resuelto con éxito.">
+  </app-section-title>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 col-12">
+        <div class="clients-logos">
+          @for (logo of clientLogos; track logo.alt) {
+            <div class="single-image">
+              <img [src]="logo.src" [alt]="logo.alt" loading="lazy" />
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CALL TO ACTION ===== -->
+<section class="call-action">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-9">
+        <div class="inner-content">
+          <h2>Lleva tu empresa al siguiente nivel<br />con soluciones integrales </h2>
+          <p>
+            Te ayudamos a optimizar tus procesos contables, financieros y tecnológicos de manera eficiente y segura en Perú y Latinoamérica.
+          </p>
+          <div class="light-rounded-buttons">
+            <a routerLink="/contact" class="btn primary-btn-outline">Solicitar asesoría</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
